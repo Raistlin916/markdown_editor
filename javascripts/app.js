@@ -3,7 +3,7 @@
 	, displayContent = document.querySelector('.display-content')
 	,	codeArea = document.querySelector('.code-area');
 
-	var placeholder = '# hellow world \n\n come to the darkside, we have cookies \n\n'
+	var placeholder = '# hello world \n\n come to the darkside, we have cookies \n\n'
 		, UNTITLE = 'untitled';
 
 	var cm = CodeMirror(codeArea, {
