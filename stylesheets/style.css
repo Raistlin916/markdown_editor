@@ -1,0 +1,99 @@
+body {
+	font-family: 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: #F9F9F5;
+}
+
+header {
+	padding: 10px 20px;
+	background: #444;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-color:#c0c0c0;
+  min-height:28px;
+  cursor: pointer;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #9499a5;
+}
+
+
+.pull-right {
+	float: right;
+}
+
+.container {
+	position: absolute;
+	left: 10px;
+	top: 50px;
+	right: 10px;
+	bottom: 20px;
+}
+
+.code-area, .display-area {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 50%;
+	padding: 5px 10px;
+	box-sizing: border-box;
+	overflow-y: auto;
+	word-break: break-all;
+	line-height: 1.5em;
+}
+
+.code-area {
+	left: 0;
+}
+
+.display-area {
+	right: 0;
+}
+
+.display-content {
+	border: 2px dashed rgb(187, 187, 187);
+	color: rgb(44, 62, 80);
+	padding: 0 5px;
+}
+
+.transparent-input {
+	background: transparent;
+	border: 0;
+	color: white;
+	outline: 0;
+}
+
+
+.code-area .CodeMirror {
+  font-size: 16px;
+  color: rgb(44, 62, 80);
+  font-family: 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
+  background: transparent;
+  line-height: 1.5em;
+  height: 100%;
+}
+
+
+.key {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	font-size: 16px;
+	line-height: 24px;
+	cursor: pointer;
+	text-align: center;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.buffer-right {
+	margin-right: 10px;
+}
