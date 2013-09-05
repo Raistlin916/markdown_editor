@@ -163,6 +163,10 @@
 		var a = document.createElement('a');
 		a.setAttribute('href', 'data:'+ mimeType +';charset=utf-8,' + encodeURIComponent(text));
 		a.setAttribute('download', filename);
+		// in firfox should append to document
+		document.body.appendChild(a);
+		a.style.display = "none";
+		a.onclick = function(){document.body.removeChild(a);};
 		a.click();
 	}
 
