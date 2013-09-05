@@ -138,6 +138,10 @@
 			downloadMD();
 		}
 
+		if(e.altKey && key == 'h'){
+			downloadHTML();
+		}
+
 	});
 
 

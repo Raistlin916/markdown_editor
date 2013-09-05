@@ -19,16 +19,20 @@
 		<div class="pull-right">
 			<div class="key icon-loop" title="reset" onclick="confirm('清空您的文件')?reset():null;"></div>
 			<!-- <div class="key icon-keyboard" title="Hotkeys"></div> -->
-			<div class="key icon-arrow-down-2" title="download: Ctrl + Alt + D" onclick="downloadMD()"></div>
 		</div>
 	</header>
 	
 	
 	<div class="container">
-		<div class="code-area"></div>
+
+		<div class="code-area">
+			<div class="key icon-arrow-down-2 abs-top-right" id="md-download" title="download: Ctrl + Alt + D" onclick="downloadMD()"></div>
+		</div>
+		
 		<div class="display-area">
 			<div class="display-content"></div>
 		</div>
+		<div class="key icon-arrow-down-2 abs-top-right" id="html-download" title="download: Ctrl + Alt + H" onclick="downloadHTML()"></div>
 	</div>
 
 	<script src="./javascripts/app.js"></script>
