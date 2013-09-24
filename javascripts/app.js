@@ -91,13 +91,12 @@
 	// setting
 	!function(){
 		var settingBtn = document.getElementById('setting-btn')
+		, closeBtn = document.querySelector('.setting-area .icon-cancel')
 		, container = document.querySelector('.container')
 		, settingArea = document.querySelector('.setting-area')
 		, isInSetting = false;
 
-
-		settingBtn.onclick = function(){
-			isInSetting = !isInSetting;
+		function controlSetting(){
 			if(isInSetting){
 				container.style.marginTop = '-50px';
 				settingArea.style.top = '60px';
@@ -105,6 +104,16 @@
 				container.style.marginTop = '0'; 
 				settingArea.style.top = '100%';
 			}
+		}
+
+		closeBtn.onclick = function(){
+			isInSetting = false;
+			controlSetting();
+		}
+
+		settingBtn.onclick = function(){
+			isInSetting = !isInSetting;
+			controlSetting();
 		}
 
 	}();

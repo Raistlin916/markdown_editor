@@ -134,8 +134,7 @@ header {
 
 
 /* sprites */
-
-.icon-file,.icon-copy,.icon-cog,.icon-arrow-down,.icon-loop {
+.icon-file,.icon-copy,.icon-cog,.icon-arrow-down,.icon-cancel,.icon-loop {
 	cursor: pointer;
 	display: inline-block;
 	width: 16px;
@@ -156,6 +155,9 @@ header {
 .icon-arrow-down {
 	background-position: -96px 0;
 }
-.icon-loop {
+.icon-cancel {
 	background-position: -128px 0;
+}
+.icon-loop {
+	background-position: -160px 0;
 }
