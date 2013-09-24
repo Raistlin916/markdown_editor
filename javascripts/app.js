@@ -90,7 +90,7 @@
 
 	// setting
 	!function(){
-		/*var settingBtn = document.getElementById('setting-btn')
+		var settingBtn = document.getElementById('setting-btn')
 		, container = document.querySelector('.container')
 		, settingArea = document.querySelector('.setting-area')
 		, isInSetting = false;
@@ -99,13 +99,13 @@
 		settingBtn.onclick = function(){
 			isInSetting = !isInSetting;
 			if(isInSetting){
-				container.style.top = '-200px';
+				container.style.marginTop = '-50px';
 				settingArea.style.top = '60px';
 			} else {
-				container.style.top = '60px'; 
+				container.style.marginTop = '0'; 
 				settingArea.style.top = '100%';
 			}
-		}*/
+		}
 
 	}();
 
