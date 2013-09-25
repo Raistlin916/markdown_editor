@@ -51,10 +51,12 @@ header {
 }
 
 .setting-area {
+	font-family: "微软雅黑";
+	font-size: 20px;
 	position: absolute;
 	top: 100%;
 	left: 50%;
-	padding: 20px;
+	padding: 0 20px;
 	margin-left: -300px;
 	height: 500px;
 	width: 600px;
@@ -112,7 +114,6 @@ header {
 }
 
 
-
 .abs-top-right {
 	position: absolute;
 	top: 10px;
@@ -132,9 +133,16 @@ header {
 	display: inline-block;
 }
 
+.buffer-top2 {
+	margin-top: 20px
+}
+
+.buffer-right2 {
+	margin-right: 20px
+}
 
 /* sprites */
-.icon-file,.icon-copy,.icon-cog,.icon-arrow-down,.icon-cancel,.icon-loop {
+.icon-file,.icon-copy,.icon-cog,.icon-arrow-down,.icon-checkmark,.icon-loop {
 	cursor: pointer;
 	display: inline-block;
 	width: 16px;
@@ -155,7 +163,7 @@ header {
 .icon-arrow-down {
 	background-position: -96px 0;
 }
-.icon-cancel {
+.icon-checkmark {
 	background-position: -128px 0;
 }
 .icon-loop {

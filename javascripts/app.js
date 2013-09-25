@@ -1,3 +1,4 @@
+"use strict";
 (function(exports){
 	var displayArea = document.querySelector('.display-area')
 	, displayContent = document.querySelector('.display-content')
@@ -91,7 +92,7 @@
 	// setting
 	!function(){
 		var settingBtn = document.getElementById('setting-btn')
-		, closeBtn = document.querySelector('.setting-area .icon-cancel')
+		, exitBtn = document.querySelector('.setting-area .icon-checkmark')
 		, container = document.querySelector('.container')
 		, settingArea = document.querySelector('.setting-area')
 		, isInSetting = false;
@@ -106,7 +107,7 @@
 			}
 		}
 
-		closeBtn.onclick = function(){
+		exitBtn.onclick = function(){
 			isInSetting = false;
 			controlSetting();
 		}
@@ -119,7 +120,7 @@
 	}();
 
 
-	// mdoe control
+	// mode control
 	!function(){
 		var modeControlBtn = document.getElementById('mode-control');
 		function controlMode(){
