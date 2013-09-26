@@ -8,11 +8,10 @@
 	<link rel="stylesheet" href="./stylesheets/codemirror.css">
 	<link rel="stylesheet" href="./stylesheets/theme/default.css">
 	<link rel="stylesheet" href="./stylesheets/style.css">
-
-	<script src="./javascripts/res.js"></script>
-	<script src="./javascripts/codemirror.min.js"></script>
+	
+	<script src="./javascripts/lib/codemirror.min.js"></script>
 	<script src="./javascripts/mode/markdown.js"></script>
-	<script src="./javascripts/markdown.js"></script>
+	<script src="./javascripts/lib/markdown.js"></script>
 </head>
 <body>
 	<header>
@@ -36,17 +35,27 @@
 	</div>
 
 	<div class="setting-area">
-		<div class="icon-checkmark pull-right buffer-top2"></div>
+		<div class="icon-checkmark pull-right buffer-top2" title="中"></div>
 		<h3>样式</h3>
-		<input type="radio" value="radio-outlink" id="radio-outlink" name="link-style">
+		<input type="radio" value="outlink" id="radio-outlink" name="link-style">
 		<label for="radio-outlink" class="buffer-right2">外链</label>
-		<input type="radio" value="radio-inline" id="radio-inline" name="link-style">
-		<label for="radio-inline">内嵌</label>
-		<div>
-			<iframe src="" frameborder="0" id="sandbox"></iframe>
+		<input type="radio" value="inline" id="radio-inline" name="link-style">
+		<label for="radio-inline" class="buffer-right2">内嵌</label>
+		<input type="radio" value="nolink" id="radio-nolink" name="link-style">
+		<label for="radio-nolink">无</label>
+		<p>
+			<input type="range" step=1 id="style-select">
+			<span id="style-select-display"></span>
+		</p>
+		
+		<div class="buffer-top2">
+			<iframe frameborder="0" id="sandbox" width='100%' height=300></iframe>
 		</div>
 	</div>
-
+	
+	<script src="./javascripts/module.js"></script>
+	<script src="./javascripts/res.js"></script>
+	<script src="./javascripts/promise.js"></script>
 	<script src="./javascripts/app.js"></script>
 	<script src="./javascripts/style_setting.js"></script>
 </body>

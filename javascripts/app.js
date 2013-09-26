@@ -1,13 +1,11 @@
 "use strict";
-(function(exports){
-	var displayArea = document.querySelector('.display-area')
-	, displayContent = document.querySelector('.display-content')
-	,	codeArea = document.querySelector('.code-area');
-	
-	var placeholder = '# hello world \n\n come to the darkside, we have cookies \n\n'
-		, UNTITLE = 'untitled'
-		, modeControlTitle = ['to overview', 'to single'];
+app.run(function(require){
+	var res = require('res');
 
+	var displayArea = res.elem.displayArea
+	, displayContent = res.elem.displayContent
+	,	codeArea = res.elem.codeArea;
+	
 	var cm = CodeMirror(codeArea, {
 		lineWrapping: true,
 		height: '100%',
@@ -15,7 +13,7 @@
 		autofocus: true,
 	  value: (function(){
 	  					var content = getContent();
-			  			return hasIt(content)? content: placeholder;
+			  			return hasIt(content)? content: res.text.placeholder;
 			  		})()
 	});
 
@@ -26,7 +24,7 @@
 
 	
 	var statusManager = (function(){
-		var smile = face.smile, evil = face.evil
+		var smile = res.face.smile, evil = res.face.evil
 		, favicon = document.getElementById('favicon');
 
 		var status = {
@@ -37,7 +35,7 @@
 
 		status.title = (function(){
 			var savedTitle = localStorage.getItem('md_title');
-			return hasIt(savedTitle)? savedTitle: UNTITLE;
+			return hasIt(savedTitle)? savedTitle: res.text.untitle;
 		})();
 
 		var lastStar = null;
@@ -78,45 +76,15 @@
 			var t = this.value;
 			t = t.trim();
 			if(!t.length){
-				t = UNTITLE;
+				t = res.text.untitle;
 			}
 			statusManager.setTitle(t);
 		});
 		titleInput.addEventListener('blur', function(){
 			if(!this.value.length){
-				this.value = UNTITLE;
+				this.value = res.text.untitle;
 			}
 		})
-	}();
-
-	// setting
-	!function(){
-		var settingBtn = document.getElementById('setting-btn')
-		, exitBtn = document.querySelector('.setting-area .icon-checkmark')
-		, container = document.querySelector('.container')
-		, settingArea = document.querySelector('.setting-area')
-		, isInSetting = false;
-
-		function controlSetting(){
-			if(isInSetting){
-				container.style.marginTop = '-50px';
-				settingArea.style.top = '60px';
-			} else {
-				container.style.marginTop = '0'; 
-				settingArea.style.top = '100%';
-			}
-		}
-
-		exitBtn.onclick = function(){
-			isInSetting = false;
-			controlSetting();
-		}
-
-		settingBtn.onclick = function(){
-			isInSetting = !isInSetting;
-			controlSetting();
-		}
-
 	}();
 
 
@@ -127,14 +95,14 @@
 			if(hasTwoColumn){
 				modeControlBtn.classList.add('icon-file');
 				modeControlBtn.classList.remove('icon-copy');
-				modeControlBtn.title = modeControlTitle[1];
+				modeControlBtn.title = res.text.modeTitle[1];
 				displayArea.style.right = '0';
 				codeArea.style.left = '0';
 				localStorage.setItem('has-two-column', 1);
 			} else {
 				modeControlBtn.classList.add('icon-copy');
 				modeControlBtn.classList.remove('icon-file');
-				modeControlBtn.title = modeControlTitle[0];
+				modeControlBtn.title = res.text.modeTitle[0];
 				displayArea.style.right = '-50%';
 				codeArea.style.left = '25%';
 				localStorage.setItem('has-two-column', 0);
@@ -264,45 +232,9 @@
 		download(statusManager.status.title+'.md', cm.getValue(), 'text/x-markdown');
 	}
 
-	exports.downloadHTML = downloadHTML;
-	exports.downloadMD = downloadMD;
-	exports.reset = reset;
+	window.downloadHTML = downloadHTML;
+	window.downloadMD = downloadMD;
+	window.reset = reset;
 
 	updateDisplay();
-
-
-	/*var easeScrollTo = (function(){
-		var hook = function(){};
-		document.body.addEventListener('webkitTransitionEnd', function(e){
-	    hook(e);
-	  });
-		return function(target, scrollTop){
-			var targetParent = target.parentNode || window, caculTop;
-			target.style.webkitTransition = '.5s ease-out margin-top';
-			caculTop = targetParent.scrollTop - scrollTop;
-			console.log(caculTop, targetParent.scrollHeight, targetParent.clientHeight);
-			if(-caculTop > targetParent.scrollHeight){
-				caculTop = -targetParent.scrollHeight;
-			}
-			target.style.marginTop = caculTop + 'px';
-			hook = function(e){
-				if(e.target == target){
-		    	target.style.webkitTransition = null;
-		    	targetParent.scrollTop = scrollTop;
-		    	target.style.marginTop = 0;
-		    }
-			}
-		}
-	})();
-
-	setTimeout(function(){
-		easeScrollTo(displayContent, 80);
-	}, 1000);*/
-	
-	
-
-
-	
-})(window);
-
-
+});
