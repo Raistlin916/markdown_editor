@@ -17,9 +17,9 @@
 	<header>
 		<input type="text" id="title" class="transparent-input">
 		<div class="pull-right btn-group">
-			<div class="icon-cog" id="setting-btn"></div>
+			<div class="icon-cog" title="setting" id="setting-btn"></div>
 			<div class="mode-control" id="mode-control"></div>
-			<div class="icon-loop" title="reset" onclick="confirm('清空您的文件')?reset():null;"></div>
+			<div class="icon-loop" title="reset" onclick="confirm('清空您的文件')&&reset()"></div>
 		</div>
 	</header>
 
@@ -29,14 +29,14 @@
 		</div>
 		
 		<div class="display-area">
-			<div class="display-content"></div>
+			<iframe frameborder="0" class="display-content"></iframe>
 		</div>
 		<div class="icon-arrow-down abs-top-right" id="html-download" title="download: Ctrl + Alt + H" onclick="downloadHTML()"></div>
 	</div>
 
 	<div class="setting-area">
 		<div class="icon-checkmark pull-right buffer-top2" title="中"></div>
-		<h3>样式</h3>
+		<h3>编译后html样式</h3>
 		<input type="radio" value="outlink" id="radio-outlink" name="link-style">
 		<label for="radio-outlink" class="buffer-right2">外链</label>
 		<input type="radio" value="inline" id="radio-inline" name="link-style">
@@ -56,7 +56,8 @@
 	<script src="./javascripts/module.js"></script>
 	<script src="./javascripts/res.js"></script>
 	<script src="./javascripts/promise.js"></script>
-	<script src="./javascripts/app.js"></script>
 	<script src="./javascripts/style_setting.js"></script>
+	<script src="./javascripts/app.js"></script>
+	
 </body>
 </html>

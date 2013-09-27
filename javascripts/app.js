@@ -1,9 +1,10 @@
 "use strict";
 app.run(function(require){
-	var res = require('res');
+	var res = require('res')
+	, IframeDoc = require('IframeDoc');
 
 	var displayArea = res.elem.displayArea
-	, displayContent = res.elem.displayContent
+	, displayContentDoc = new IframeDoc(res.elem.displayContent, true)
 	,	codeArea = res.elem.codeArea;
 	
 	var cm = CodeMirror(codeArea, {
@@ -150,7 +151,7 @@ app.run(function(require){
 	}
 
 	function updateDisplay(){
-		displayContent.innerHTML = markdown.toHTML(cm.getValue());
+		displayContentDoc.setBody(markdown.toHTML(cm.getValue()));
 	}
 
 	function save(){
@@ -203,11 +204,11 @@ app.run(function(require){
 
 
 	cm.on('scroll', function(e){
-		displayArea.scrollTop = cm.getScrollInfo().top;
+		displayContentDoc.doc.body.scrollTop = cm.getScrollInfo().top;
 	});
 
-	displayArea.addEventListener('scroll', function(){
-		cm.scrollTo(null, this.scrollTop);
+	displayContentDoc.doc.addEventListener('scroll', function(){
+		cm.scrollTo(null, this.body.scrollTop);
 	});
 
 	
@@ -224,8 +225,18 @@ app.run(function(require){
 		a.click();
 	}
 
+	function getDoctype(doc){
+    var doctype = 
+	    '<!DOCTYPE ' + 
+	    doc.doctype.name +
+	    (doc.doctype.publicId?' PUBLIC "' +  doc.doctype.publicId + '"':'') +
+	    (doc.doctype.systemId?' "' + doc.doctype.systemId + '"':'') + '>';
+    return doctype;
+	}
+
 	function downloadHTML(){
-		download(statusManager.status.title+'.html', displayContent.innerHTML, 'text/html');
+		var doc = displayContentDoc.doc;
+		download(statusManager.status.title+'.html', getDoctype(doc) + doc.documentElement.outerHTML, 'text/html');
 	}
 
 	function downloadMD(){
