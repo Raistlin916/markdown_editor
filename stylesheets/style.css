@@ -60,7 +60,7 @@ header {
 	margin-left: -300px;
 	height: 500px;
 	width: 600px;
-	border: 2px solid black;
+	border: 2px solid grey;
 	background: white;
 	z-index: 1000;
 	-webkit-transition: ease all 1s;
