@@ -12,6 +12,7 @@
 	<script src="./javascripts/lib/codemirror.min.js"></script>
 	<script src="./javascripts/mode/markdown.js"></script>
 	<script src="./javascripts/lib/markdown.js"></script>
+	<script src="./javascripts/lib/html2canvas.js"></script>
 </head>
 <body>
 	<header>
@@ -31,7 +32,14 @@
 		<div class="display-area">
 			<iframe frameborder="0" class="display-content"></iframe>
 		</div>
-		<div class="icon-arrow-down abs-top-right" id="html-download" title="download: Ctrl + Alt + H" onclick="downloadHTML()"></div>
+		
+		<div class="abs-top-right html-action">
+			<div class="icon-arrow-down" id="html-download" title="download: Ctrl + Alt + H" onclick="downloadHTML()"></div>
+			<div title="快照" onclick="snapshot()">照</div>
+		</div>
+		
+	
+		
 	</div>
 
 	<div class="setting-area">

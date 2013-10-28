@@ -239,12 +239,22 @@ app.run(function(require){
 		download(statusManager.status.title+'.html', getDoctype(doc) + doc.documentElement.outerHTML, 'text/html');
 	}
 
+	function snapshot(){
+		html2canvas(displayContentDoc.doc.body, {
+		  onrendered: function(canvas) {
+				var dataUrl = canvas.toDataURL();
+				window.open(dataUrl, res.text.snapshot);
+		  }
+		});
+	}
+
 	function downloadMD(){
 		download(statusManager.status.title+'.md', cm.getValue(), 'text/x-markdown');
 	}
 
 	window.downloadHTML = downloadHTML;
 	window.downloadMD = downloadMD;
+	window.snapshot = snapshot;
 	window.reset = reset;
 
 	updateDisplay();

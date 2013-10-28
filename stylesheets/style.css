@@ -123,7 +123,7 @@ header {
 	z-index: 1000;
 }
 
-#md-download, #html-download {
+#md-download, .html-action {
 	display: none;
 }
 
@@ -131,8 +131,12 @@ header {
 	display: inline-block;
 }
 
-.display-area:hover + #html-download, #html-download:hover {
+.display-area:hover + .html-action, .html-action:hover {
 	display: inline-block;
+}
+
+.html-action > * {
+	cursor: pointer;
 }
 
 .buffer-top2 {

@@ -11,7 +11,8 @@ app.add('res', function(require, exports){
     untitle: 'untitled',
     andSoOn: 'and so on..',
     modeTitle: ['to overview', 'to single'],
-    downloadFail: '下载失败'
+    downloadFail: '下载失败',
+    snapshot: '快照'
   };
 
   exports.elem = {
